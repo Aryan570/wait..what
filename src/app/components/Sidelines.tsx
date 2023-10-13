@@ -6,7 +6,7 @@ import { getServerSession } from 'next-auth'
 import { connectToDatabase } from '../../../lib/mongodb'
 import { Avatar, AvatarFallback, AvatarImage } from "@/app/components/ui/avatar"
 import { Button } from './ui/button'
-import {PlusCircle} from 'lucide-react'
+import {PlusCircle,Plus} from 'lucide-react'
 const Sidelines = async () => {
     const session = await getServerSession(authOptions);
     const { db } = await connectToDatabase();
@@ -28,7 +28,7 @@ const Sidelines = async () => {
                         <AvatarImage src={urlR} />
                         <AvatarFallback>WW</AvatarFallback>
                     </Avatar>
-                    <Button><div className='flex justify-between items-center'><PlusCircle className='' strokeWidth={1}/><div className='px-1'></div>Post</div></Button>
+                    <Button><div className='flex justify-between items-center text-lg font-bold'><Plus strokeWidth={2}/><div className='px-1'></div>Post</div></Button>
                 </div>
             </div>
         </div>
