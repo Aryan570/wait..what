@@ -18,21 +18,6 @@ import { toast } from '../components/ui/use-toast'
 import { useRouter } from 'next/navigation'
 import { signIn } from 'next-auth/react'
 import {Loader2} from 'lucide-react'
-// var jwt = require("jsonwebtoken")
-// import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
-
-// type Repo = {
-//     name: string
-//     password: string
-// }
-
-// export const getServerSideProps = (async (context) => {
-//     const res = await fetch('https://api.github.com/repos/vercel/next.js')
-//     const repo = await res.json()
-//     return { props: { repo } }
-// }) satisfies GetServerSideProps<{
-//     repo: Repo
-// }>
 const formSchema = z
     .object({
         username: z.string().min(2, {
