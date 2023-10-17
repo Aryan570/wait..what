@@ -71,7 +71,7 @@ export function SheetDemo() {
                         <Label htmlFor="title" className="text-right text-lg">
                           Heading
                         </Label>
-                        <Input id="title" placeholder="yo guys" className="col-span-3 text-lg" {...field} />
+                        <Input placeholder="yo guys" className="col-span-3 text-lg" {...field} />
                       </div>
                     </div>
                   </FormControl>
@@ -90,24 +90,23 @@ export function SheetDemo() {
                         <Label htmlFor="content" className="text-right text-lg">
                           Content
                         </Label>
-                        <Textarea placeholder="type your message" className="col-span-3 resize-none text-lg" {...field} />
+                        <Textarea id="s" placeholder="type your message" className="col-span-3 resize-none text-lg" {...field} />
                       </div>
                     </div>
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage/>
                 </FormItem>
               )}
             />
             <SheetFooter>
               <SheetClose asChild>
-                <Button type="submit" className="text-lg">Save changes</Button>
+                <form><Button type="submit" className="text-lg" >Save changes</Button></form>
               </SheetClose>
             </SheetFooter>
           </SheetContent>
         </Sheet>
       </form>
     </Form>
-
   )
 }
 
