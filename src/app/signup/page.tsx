@@ -13,7 +13,7 @@ import {
     FormMessage,
 } from "@/app/components/ui/form"
 import { Input } from '@/app/components/ui/input'
-import { useForm } from 'react-hook-form'
+import { FormProvider, useForm } from 'react-hook-form'
 import { toast } from '../components/ui/use-toast'
 import { useRouter } from 'next/navigation'
 import { signIn } from 'next-auth/react'
