@@ -14,6 +14,7 @@ const Sidelines = async () => {
         password: session.password
     })
     const urlR = res ? res.fileURL : '/fatrat.jpg'; ///have to do something here
+    const posts = res?.posts;
     return (
         <div>
             <div className=' grid grid-cols-6 grid-rows-6'>
