@@ -14,11 +14,18 @@ const Sidelines = async () => {
         password: session.password
     })
     const urlR = res ? res.fileURL : '/fatrat.jpg'; ///have to do something here
-    const resPost = res?.posts;
+    let resPost = res?.posts;
+    if(!resPost){
+        resPost = [{
+            title: "Post Something",
+            content: "Do something Please"
+        }]
+    }
     // console.log(resPost)
     interface Ele{
         title: string,
-        content: string
+        content: string,
+        date: string
     }
     return (
         <div>
@@ -32,7 +39,10 @@ const Sidelines = async () => {
                 <div className='col-start-2 min-h-screen  col-span-4 row-start-2 row-span-4 border-l-[0.5px] border-r-[0.5px] border-dashed'>
                     {resPost.map((ele : Ele) =>(
                         <div className='bg-slate-800 rounded-xl m-1 py-2' key={ele.title}>
-                            <div className='p-2 text-lg font-bold'>{ele.title}</div>
+                            <div className='flex justify-between'>
+                                <div className='p-2 text-lg font-bold'>{ele.title}</div>
+                                <div className='p-2 text-lg'>{ele.date}</div>
+                            </div>
                             <hr className=' mx-2 opacity-70'/>
                             <div className='p-2'>{ele.content}</div>
                         </div>

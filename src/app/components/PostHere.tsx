@@ -25,6 +25,7 @@ import {
 } from "@/app/components/ui/form"
 import { Textarea } from "./ui/textarea"
 import { useForm } from "react-hook-form"
+
 const formSchema = z
   .object({
     title: z.string().min(2, {
@@ -35,6 +36,7 @@ const formSchema = z
     }),
   });
 export function SheetDemo() {
+  
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -48,7 +50,7 @@ export function SheetDemo() {
             method: 'POST',
             body: JSON.stringify(values),
     })
-    console.log(res)
+    // console.log(res)
     form.reset();
      //make an api
   }
