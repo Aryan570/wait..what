@@ -55,6 +55,9 @@ const Sidelines = async () => {
                     </Avatar> */}
                     <SheetDemo />
                 </div>
+                <div className='row-start-6 border-t-[0.5px] border-dashed'></div>
+                <div className='row-start-6 border-t-[0.5px] border-l-[0.5px] border-r-[0.5px] col-start-2 col-span-4 border-dashed'></div>
+                <div className='row-start-6 border-t-[0.5px] col-start-6 border-dashed'></div>
             </div>
         </div>
     )
