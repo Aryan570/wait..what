@@ -37,7 +37,7 @@ const Sidelines = async () => {
                 </div>
                 {/* <div className='col-start-2 min-h-screen  col-span-4 row-start-2 row-span-4 text-center border-l-[0.5px] border-r-[0.5px] border-dashed'>3</div> */}
                 <div className='col-start-2 min-h-screen  col-span-4 row-start-2 row-span-4 border-l-[0.5px] border-r-[0.5px] border-dashed'>
-                    {resPost.map((ele : Ele) =>(
+                    {resPost.reverse().map((ele : Ele) =>(
                         <div className='bg-slate-800 rounded-xl m-1 py-2' key={ele.title}>
                             <div className='flex justify-between'>
                                 <div className='p-2 text-lg font-bold'>{ele.title}</div>
