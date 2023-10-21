@@ -29,8 +29,8 @@ const Sidelines = async () => {
     }
     return (
         <div>
-            <div className=' grid grid-cols-6 grid-rows-6 max-h-screen min-h-fit'>
-                <div className='col-start-1 col-span-1 row-start-1 row-span-1 text-center border-b-[0.5px] border-dashed'><div className='overflow-hidden flex justify-center items-center '><Image className='object-cover' src='/checkk.png' alt='left_logo' width={100} height={100} /></div></div>
+            <div className=' grid grid-cols-6 grid-rows-6 max-h-screen min-h-screen'>
+                <div className='col-start-1 col-span-1 row-start-1 row-span-1 text-center border-b-[0.5px] border-dashed'><div className='overflow-hidden flex justify-center items-center '><Image className='object-cover overflow-hidden' src='/checkk.png' alt='left_logo' width={100} height={100} /></div></div>
                 <div className='relative text-center col-start-2 col-span-4 row-start-1 border-l-[0.5px] border-r-[0.5px] border-b-[0.5px] border-dashed'>
                     <div className="bg-[url('/chekkkss.svg')] z-10 w-full h-full absolute"></div>
                     <Image className='object-cover ' src={urlR} alt='Cover Picture' fill={true} />
@@ -44,7 +44,7 @@ const Sidelines = async () => {
                                 <div className='p-2 text-lg'>{ele.date}</div>
                             </div>
                             <hr className=' mx-2 opacity-70'/>
-                            <div className='p-2 break-all'>{ele.content}</div>
+                            <div className='p-2 break-words'>{ele.content}</div>
                         </div>
                     ))}
                 </div>
