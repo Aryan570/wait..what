@@ -107,7 +107,7 @@ export function SheetDemo() {
             />
             <SheetFooter>
               <SheetClose asChild>
-                <form><Button type="submit" className="text-lg" >Save changes</Button></form>
+                <form><Button type="submit" variant={"ghost"} className="text-lg" >Save changes</Button></form>
               </SheetClose>
             </SheetFooter>
           </SheetContent>

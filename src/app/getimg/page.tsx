@@ -63,7 +63,7 @@ const GetImage = () => {
                         <label htmlFor='dropzone-file' className='cursor-pointer flex flex-col justify-center items-center'>
                             <div className='flex flex-col justify-center items-center'>
                                 <UploadCloud />
-                                <p className='text-sm'>Upload a Cover Photo</p>
+                                <p className='text-sm'>Upload the Banner picture</p>
                             </div>
                             {acceptedFiles && acceptedFiles[0] ? (
                                 <div className='flex items-center max-w-xs mt-2 overflow-hidden divide-x divide-zinc-200'>
