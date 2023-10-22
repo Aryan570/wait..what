@@ -58,7 +58,7 @@ export function SheetDemo() {
       <form onSubmit={form.handleSubmit(onSubmit)} className=" ">
         <Sheet >
           <SheetTrigger asChild>
-            <Button variant="outline">Post</Button>
+            <Button className="text-lg font-medium" variant="default">Post</Button>
           </SheetTrigger>
           <SheetContent side={"bottom"}>
             <SheetHeader>
@@ -107,7 +107,7 @@ export function SheetDemo() {
             />
             <SheetFooter>
               <SheetClose asChild>
-                <form><Button type="submit" variant={"ghost"} className="text-lg" >Save changes</Button></form>
+                <form><Button type="submit" className="text-lg" >Save changes</Button></form>
               </SheetClose>
             </SheetFooter>
           </SheetContent>

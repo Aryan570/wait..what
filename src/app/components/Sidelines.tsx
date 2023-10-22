@@ -1,4 +1,3 @@
-//check for separator too
 import Image from 'next/image'
 import React from 'react'
 import { authOptions } from '../api/auth/[...nextauth]/route'
@@ -6,8 +5,11 @@ import { getServerSession } from 'next-auth'
 import { connectToDatabase } from '../../../lib/mongodb'
 import { Avatar, AvatarFallback, AvatarImage } from "@/app/components/ui/avatar"
 import { SheetDemo } from './PostHere'
+import {ArrowRightIcon} from "lucide-react"
+import { redirect } from 'next/navigation'
 const Sidelines = async () => {
     const session = await getServerSession(authOptions);
+    if(!session) redirect('/login')
     const { db } = await connectToDatabase();
     const res = await db.collection("all_details").findOne({
         name: session.name,
@@ -21,16 +23,16 @@ const Sidelines = async () => {
             content: "Do something Please"
         }]
     }
-    // console.log(resPost)
     interface Ele{
         title: string,
         content: string,
         date: string
     }
     return (
+        ///remeber jux
         <div>
             <div className=' grid grid-cols-6 grid-rows-6 max-h-screen min-h-screen'>
-                <div className='col-start-1 col-span-1 row-start-1 row-span-1 text-center border-b-[0.5px] border-dashed'><div className='overflow-hidden flex justify-center items-center '><Image className='object-cover overflow-hidden' src='/checkk.png' alt='left_logo' width={100} height={100} /></div></div>
+                <div className='col-start-1 col-span-1 row-start-1 row-span-1 text-center border-b-[0.5px] border-dashed flex justify-center items-center'><div className='overflow-hidden flex justify-center items-center '><Image className='object-cover overflow-hidden' src='/checkk.png' alt='left_logo' width={100} height={100} /></div></div>
                 <div className='relative text-center col-start-2 col-span-4 row-start-1 border-l-[0.5px] border-r-[0.5px] border-b-[0.5px] border-dashed'>
                     <div className="bg-[url('/chekkkss.svg')] z-10 w-full h-full absolute"></div>
                     <Image className='object-cover ' src={urlR} alt='Cover Picture' fill={true} />
@@ -56,7 +58,9 @@ const Sidelines = async () => {
                     <SheetDemo />
                 </div>
                 <div className='row-start-6 border-t-[0.5px] border-dashed'></div>
-                <div className='row-start-6 border-t-[0.5px] border-l-[0.5px] border-r-[0.5px] col-start-2 col-span-4 border-dashed'></div>
+                <div className='row-start-6 border-t-[0.5px] border-l-[0.5px] border-r-[0.5px] col-start-2 col-span-4 border-dashed flex justify-center items-center'>
+                    <div className='flex'><p className='text-lg underline decoration-white'>Want to see something colorful?</p><ArrowRightIcon strokeWidth={1}/></div>
+                </div>
                 <div className='row-start-6 border-t-[0.5px] col-start-6 border-dashed'></div>
             </div>
         </div>

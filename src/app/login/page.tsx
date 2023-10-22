@@ -15,6 +15,7 @@ import {
 import { Input } from '@/app/components/ui/input'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
+import { signIn } from 'next-auth/react'
 const formSchema = z.object({
   username: z.string().min(2, {
     message: "Username must be at least 2 characters.",
@@ -25,11 +26,6 @@ const formSchema = z.object({
 })
 const Login_Form = () => {
   const router = useRouter();
-//   useEffect(() => {
-//     if(localStorage.getItem('myuser')){
-//      router.push('/')
-//     }
-//  }, [])
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -41,19 +37,23 @@ const Login_Form = () => {
     name: string,
     password: string
   }
-  // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
     const res = await fetch('http://localhost:3000/api/userthere', {
       method: 'POST',
       body: JSON.stringify(values)
     })
     const data = await res.json();
-    // console.log(data.res)
     if (data.res === null) router.push('/signup')
     else {
-      localStorage.setItem('myuser', JSON.stringify({ token: data.token, username: data.res.name ,password: data.res.password}))
-    } router.push('/')
+      const uname = values.username;
+      const upass = values.password;
+      const res = await signIn("credentials",{
+          uname,
+          upass,
+          redirect: false
+      })
+      router.push('/')
+    }
     form.reset();
   }
   return (

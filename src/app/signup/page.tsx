@@ -65,11 +65,10 @@ const SignUp = () => {
             const uname = values.username
             const upass = values.password
             const res2 = await signIn("credentials", {
-                uname, 
-                upass, 
+                uname,
+                upass,
                 redirect: false
             })
-            // console.log("im in signup",res2)
             form.reset();
             router.push('/getimg');
         }
