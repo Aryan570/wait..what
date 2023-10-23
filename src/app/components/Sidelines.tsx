@@ -8,6 +8,7 @@ import { SheetDemo } from './PostHere'
 import { ArrowRightIcon } from "lucide-react"
 import { redirect } from 'next/navigation'
 import SignO from './Sigout'
+import Link from 'next/link'
 const Sidelines = async () => {
     const session = await getServerSession(authOptions);
     if (!session) redirect('/login')
@@ -76,7 +77,7 @@ const Sidelines = async () => {
                 <div className='row-start-6 border-t-[0.5px] border-l-[0.5px] border-r-[0.5px] col-start-2 col-span-4 border-dashed flex justify-center items-center'>
                     <div className='flex'><p className='text-lg underline decoration-white'>Want to see something colorful?</p><ArrowRightIcon strokeWidth={1} /></div>
                 </div>
-                <div className='row-start-6 border-t-[0.5px] col-start-6 border-dashed'></div>
+                <div className='row-start-6 border-t-[0.5px] col-start-6 border-dashed flex justify-center items-center'><Link href={'https://ghiblily.vercel.app/'} target='_blank'><Image src='/ghib.png' alt='ghiblily' width={100} height={100} /></Link></div>
             </div>
             {/* new thing here, trying the gradient */}
         </div>
@@ -90,6 +91,7 @@ export default Sidelines
 // to do- 
 // signOut function   /// DONE
 //font size of signup and login ///DONE
-//link to ghiblily
+//link to ghiblily             ///DONE
+//realistingly speaking this project might be over on 23 October 2023
 //mobile view  --- this is the big
 //encrypt the passwords.
