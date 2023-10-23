@@ -7,8 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/app/components/ui/avatar"
 import { SheetDemo } from './PostHere'
 import { ArrowRightIcon } from "lucide-react"
 import { redirect } from 'next/navigation'
-import makeHash from '../hashing/hashPass'
-import compareit from '../hashing/comparePass'
+import SignO from './Sigout'
 const Sidelines = async () => {
     const session = await getServerSession(authOptions);
     if (!session) redirect('/login')
@@ -26,7 +25,7 @@ const Sidelines = async () => {
         }]
     }
     // const hashs = makeHash("gameloft");
-    // console.log(hashs);
+    // console.log(typeof hashs);
     // console.log(compareit("gameloft",hashs));
     // console.log(compareit("gameloft","$2a$10$BnaFPoDNpFRng6wL/zRNW./4UvneDuj/o3pI03vuLcRqyGPoNAPc2"))
     interface Ele {
@@ -73,14 +72,13 @@ const Sidelines = async () => {
                     </Avatar> */}
                     <SheetDemo />
                 </div>
-                <div className='row-start-6 border-t-[0.5px] border-dashed'></div>
+                <div className='row-start-6 border-t-[0.5px] border-dashed flex justify-center items-center'><SignO/></div>
                 <div className='row-start-6 border-t-[0.5px] border-l-[0.5px] border-r-[0.5px] col-start-2 col-span-4 border-dashed flex justify-center items-center'>
                     <div className='flex'><p className='text-lg underline decoration-white'>Want to see something colorful?</p><ArrowRightIcon strokeWidth={1} /></div>
                 </div>
                 <div className='row-start-6 border-t-[0.5px] col-start-6 border-dashed'></div>
             </div>
             {/* new thing here, trying the gradient */}
-            
         </div>
     )
 }
@@ -90,8 +88,8 @@ export default Sidelines
 // bg-gradient-to-r from-violet-200 to-pink-200
 //className='relative left-[calc(50%-11rem)] aspect-[1155/500] w-[36.125rem] -translate-x-8 rotate-[30deg] bg-gradient-to-b from-purple-400 via-violet-500 to-indigo-600 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem] opacity-40'/>
 // to do- 
-// signOut function
-//font size of signup and login
+// signOut function   /// DONE
+//font size of signup and login ///DONE
 //link to ghiblily
 //mobile view  --- this is the big
 //encrypt the passwords.

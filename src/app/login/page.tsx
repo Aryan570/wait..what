@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import * as z from 'zod'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Button } from "@/app/components/ui/button"
@@ -17,6 +17,8 @@ import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import { signIn } from 'next-auth/react'
 import { Loader2 } from 'lucide-react'
+import compareit from '../hashing/comparePass'
+import { toast } from '../components/ui/use-toast'
 const formSchema = z.object({
   username: z.string().min(2, {
     message: "Username must be at least 2 characters.",
@@ -40,15 +42,28 @@ const Login_Form = () => {
     password: string
   }
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    setload(true);
     const res = await fetch('http://localhost:3000/api/userthere', {
       method: 'POST',
       body: JSON.stringify(values)
     })
     const data = await res.json();
+    console.log(data);
     if (data.res === null) router.push('/signup')
-    else {
+    else if(!compareit(values.password,data.res.password)){
+       setload(false);
+       form.reset();
+       toast({
+        title: "Welcome to the Wait..What:",
+        description: (
+            <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+                <p>Check your password or username</p>
+            </pre>
+        ),
+    })
+    } else {
       const uname = values.username;
-      const upass = values.password;
+      const upass = data.res.password;
       const res = await signIn("credentials",{
           uname,
           upass,
@@ -56,6 +71,7 @@ const Login_Form = () => {
       })
       router.push('/')
     }
+    setload(false);
     form.reset();
   }
   return (
@@ -67,11 +83,11 @@ const Login_Form = () => {
             name="username"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Username</FormLabel>
+                <FormLabel className='text-base'>Username</FormLabel>
                 <FormControl>
-                  <Input placeholder="Aryan" {...field} />
+                  <Input className='text-base' placeholder="Aryan" {...field} />
                 </FormControl>
-                <FormDescription>
+                <FormDescription className='text-base'>
                   really? is that your username?
                 </FormDescription>
                 <FormMessage />
@@ -83,15 +99,15 @@ const Login_Form = () => {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Enter Your Password</FormLabel>
+                <FormLabel className='text-base'>Enter Your Password</FormLabel>
                 <FormControl>
-                  <Input placeholder="Password" {...field} />
+                  <Input className='text-base' placeholder="Password" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-          <Button type="submit" variant={'default'} disabled={load} className='dark w-full'>{load? <Loader2 className='animate-spin'/> : "Submit"}</Button>
+          <Button type="submit" variant={'default'} disabled={load} className='dark w-full text-base'>{load? <Loader2 className='animate-spin'/> : "Submit"}</Button>
         </form>
       </div>
     </Form>

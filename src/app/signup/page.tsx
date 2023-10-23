@@ -82,11 +82,11 @@ const SignUp = () => {
                         name="username"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Username</FormLabel>
+                                <FormLabel className='text-base'>Username</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="Aryan" {...field} />
+                                    <Input className='text-base' placeholder="Aryan" {...field} />
                                 </FormControl>
-                                <FormDescription>
+                                <FormDescription className='text-base'>
                                     This is your public display name.
                                 </FormDescription>
                                 <FormMessage />
@@ -98,9 +98,9 @@ const SignUp = () => {
                         name="password"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Set Password</FormLabel>
+                                <FormLabel className='text-base'>Set Password</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="Password" {...field} />
+                                    <Input className='text-base' placeholder="Password" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -111,15 +111,15 @@ const SignUp = () => {
                         name="cpassword"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Confirm Password</FormLabel>
+                                <FormLabel className='text-base'>Confirm Password</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="Confirm Password" {...field} />
+                                    <Input className='text-base' placeholder="Confirm Password" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
                         )}
                     />
-                    <Button type="submit" variant={'default'} className='dark w-full' disabled={load} >{load ? <Loader2 className='animate-spin'/> : "Submit"}</Button>
+                    <Button type="submit" variant={'default'} className='dark w-full text-base' disabled={load} >{load ? <Loader2 className='animate-spin'/> : "Submit"}</Button>
                 </form>
             </div>
         </Form>
