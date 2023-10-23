@@ -7,6 +7,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/app/components/ui/avatar"
 import { SheetDemo } from './PostHere'
 import { ArrowRightIcon } from "lucide-react"
 import { redirect } from 'next/navigation'
+import makeHash from '../hashing/hashPass'
+import compareit from '../hashing/comparePass'
 const Sidelines = async () => {
     const session = await getServerSession(authOptions);
     if (!session) redirect('/login')
@@ -23,6 +25,10 @@ const Sidelines = async () => {
             content: "Do something Please"
         }]
     }
+    // const hashs = makeHash("gameloft");
+    // console.log(hashs);
+    // console.log(compareit("gameloft",hashs));
+    // console.log(compareit("gameloft","$2a$10$BnaFPoDNpFRng6wL/zRNW./4UvneDuj/o3pI03vuLcRqyGPoNAPc2"))
     interface Ele {
         title: string,
         content: string,
