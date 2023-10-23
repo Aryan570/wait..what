@@ -119,7 +119,6 @@ const SignUp = () => {
                             </FormItem>
                         )}
                     />
-
                     <Button type="submit" variant={'default'} className='dark w-full' disabled={load} >{load ? <Loader2 className='animate-spin'/> : "Submit"}</Button>
                 </form>
             </div>

@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import * as z from 'zod'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Button } from "@/app/components/ui/button"
@@ -16,6 +16,7 @@ import { Input } from '@/app/components/ui/input'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import { signIn } from 'next-auth/react'
+import { Loader2 } from 'lucide-react'
 const formSchema = z.object({
   username: z.string().min(2, {
     message: "Username must be at least 2 characters.",
@@ -25,6 +26,7 @@ const formSchema = z.object({
   }),
 })
 const Login_Form = () => {
+  const [load, setload] = useState(false);
   const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -89,7 +91,7 @@ const Login_Form = () => {
               </FormItem>
             )}
           />
-          <Button type="submit" variant={'default'} className='dark'>Submit</Button>
+          <Button type="submit" variant={'default'} disabled={load} className='dark w-full'>{load? <Loader2 className='animate-spin'/> : "Submit"}</Button>
         </form>
       </div>
     </Form>
