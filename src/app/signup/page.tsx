@@ -47,7 +47,7 @@ const SignUp = () => {
     const router = useRouter();
     async function onSubmit(values: z.infer<typeof formSchema>) {
         setload(true);
-        const res = await fetch('http://localhost:3000/api/userpost', {
+        const res = await fetch('/api/userpost', {
             method: 'POST',
             body: JSON.stringify(values),
         })

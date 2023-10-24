@@ -46,7 +46,7 @@ export function SheetDemo() {
   })
   async function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values)
-    const res = await fetch('http://localhost:3000/api/onlypost', {
+    const res = await fetch('/api/onlypost', {
             method: 'POST',
             body: JSON.stringify(values),
     })

@@ -3,7 +3,6 @@ import React from 'react'
 import { authOptions } from '../api/auth/[...nextauth]/route'
 import { getServerSession } from 'next-auth'
 import { connectToDatabase } from '../../../lib/mongodb'
-import { Avatar, AvatarFallback, AvatarImage } from "@/app/components/ui/avatar"
 import { SheetDemo } from './PostHere'
 import { ArrowRightIcon } from "lucide-react"
 import { redirect } from 'next/navigation'
@@ -17,7 +16,7 @@ const Sidelines = async () => {
         name: session.name,
         password: session.password
     })
-    const urlR = res ? res.fileURL : '/fatrat.jpg'; ///have to do something here     IMPPPPPPPPPPP
+    const urlR = res ? res.fileURL : '/fatrat.png';
     let resPost = res?.posts;
     if (!resPost) {
         resPost = [{
@@ -25,17 +24,12 @@ const Sidelines = async () => {
             content: "Do something Please"
         }]
     }
-    // const hashs = makeHash("gameloft");
-    // console.log(typeof hashs);
-    // console.log(compareit("gameloft",hashs));
-    // console.log(compareit("gameloft","$2a$10$BnaFPoDNpFRng6wL/zRNW./4UvneDuj/o3pI03vuLcRqyGPoNAPc2"))
     interface Ele {
         title: string,
         content: string,
         date: string
     }
     return (
-        ///remeber jux
         <div>
             <div className='relative'>
                 <div aria-hidden={true} className='absolute transform-gpu overflow-hidden blur-3xl -z-50 inset-x-0 pointer-events-none'>
@@ -55,7 +49,6 @@ const Sidelines = async () => {
                     <Image className='object-cover ' src={urlR} alt='Cover Picture' fill={true} />
                     </Link>
                 </div>
-                {/* <div className='col-start-2 min-h-screen  col-span-4 row-start-2 row-span-4 text-center border-l-[0.5px] border-r-[0.5px] border-dashed'>3</div> */}
                 <div className='col-start-2 col-span-4 row-start-auto row-span-4 border-l-[0.5px] border-r-[0.5px] border-dashed overflow-scroll scrollbar-hide'>
                     {resPost.reverse().map((ele: Ele) => (
                         <div className='bg-slate-800 rounded-xl m-1 py-2' key={ele.title}>
@@ -69,10 +62,6 @@ const Sidelines = async () => {
                     ))}
                 </div>
                 <div className='col-start-6 col-span-1 row-start-1 row-span-1 text-center border-b-[0.5px] border-dashed flex justify-center items-center'>
-                    {/* <Avatar>
-                        <AvatarImage src={urlR} />
-                        <AvatarFallback>WW</AvatarFallback>  We'll see if we want to use avatar
-                    </Avatar> */}
                     <SheetDemo />
                 </div>
                 <div className='row-start-6 border-t-[0.5px] border-dashed flex justify-center items-center'><SignO/></div>
@@ -81,7 +70,6 @@ const Sidelines = async () => {
                 </div>
                 <div className='row-start-6 border-t-[0.5px] col-start-6 border-dashed flex justify-center items-center'><Link href={'https://ghiblily.vercel.app/'} target='_blank'><Image src='/ghib.png' alt='ghiblily' width={100} height={100} /></Link></div>
             </div>
-            {/* new thing here, trying the gradient */}
         </div>
     )
 }
@@ -95,5 +83,5 @@ export default Sidelines
 //font size of signup and login ///DONE
 //link to ghiblily             ///DONE
 //realistingly speaking this project might be over on 23 October 2023
-//mobile view  --- this is the big -------------- Mobile view remaining
+//mobile view  --- this is the big -------------- Mobile view remaining  // its done i guess
 //encrypt the passwords.  /// DONE
