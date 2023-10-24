@@ -1,4 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+
+![Performance_is_lit](https://github.com/Aryan570/wait..what/assets/91080682/7eccf360-2baa-4ad7-a675-458efbe9d590)
+
+
+
+This is the Project where you can gather your notes. I tried to make this personalized, as when you go to the website, you see, you are asked to upload a banner, which would be on your profile when getting your notes. You can edit the banner, just by clicking on the banner. 
+#This Project was fun, because. - 
+* First time working with TypeScript. And I don't wanna go back to JavaScript, I am still new, but I will keep on working with TypeScript.
+* First time using @shadcn-ui . It was a great experience for the most part, and will definitely use it for future projects.
+* UploadThing - Funny thing, I actually saw this tool and then decided to make a project around it. LOL.
+* First time working with Next-Auth.
+* Learning about mongoDB was fun.
+
+#Learnings from Project-
+* TypeScript
+* Learnt a lot about Next-Auth.
+* UploadThing is supercool.
+* MongoDB is so easy to work with (for this project, maybe it is. but its so deep).
+* Learnt about shadcn-ui.
+* And last, NextJS 13 is a game changer.
+
 
 ## Getting Started
 
