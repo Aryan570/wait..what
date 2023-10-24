@@ -1,3 +1,9 @@
+
+
+![Performance_is_lit](https://github.com/Aryan570/wait..what/assets/91080682/7eccf360-2baa-4ad7-a675-458efbe9d590)
+
+
+
 This is the Project where you can gather your notes. I tried to make this personalized, as when you go to the website, you see, you are asked to upload a banner, which would be on your profile when getting your notes. You can edit the banner, just by clicking on the banner. 
 #This Project was fun, because. - 
 * First time working with TypeScript. And I don't wanna go back to JavaScript, I am still new, but I will keep on working with TypeScript.
