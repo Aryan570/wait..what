@@ -45,7 +45,7 @@ const Sidelines = async () => {
                 <div className='col-start-1 col-span-1 row-start-1 row-span-1 text-center border-b-[0.5px] border-dashed flex justify-center items-center'><div className='overflow-hidden flex justify-center items-center '><Image className='object-cover overflow-hidden' src='/realLogo.png' alt='left_logo' width={100} height={100} /></div></div>
                 <div className='relative text-center col-start-2 col-span-4 row-start-1 border-l-[0.5px] border-r-[0.5px] border-b-[0.5px] border-dashed'>
                     <Link href={'/getimg'}>
-                    <div className="bg-[url('/chekkkss.svg')] z-10 w-full h-full absolute"></div>
+                    <div className="bg-[url('/chekkkss.svg')] z-10 w-full h-full absolute opacity-70"></div>
                     <Image className='object-cover ' src={urlR} alt='Cover Picture' fill={true} />
                     </Link>
                 </div>
@@ -85,3 +85,5 @@ export default Sidelines
 //realistingly speaking this project might be over on 23 October 2023
 //mobile view  --- this is the big -------------- Mobile view remaining  // its done i guess
 //encrypt the passwords.  /// DONE
+
+/// Final testing on 24 October 8:00 pm
