@@ -6,7 +6,7 @@ import { AuthProvider } from './Providers'
 const pompiere = Pompiere({ subsets: ['latin'],weight:['400'] })
 export const metadata: Metadata = {
   title: 'WW - Wait..What',
-  description: 'Great app to share your stories with others.',
+  description: 'Great app for personalized notes keeping.',
 }
 
 export default function RootLayout({
