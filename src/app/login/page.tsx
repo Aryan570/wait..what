@@ -19,6 +19,7 @@ import { signIn } from 'next-auth/react'
 import { Loader2 } from 'lucide-react'
 import compareit from '../hashing/comparePass'
 import { toast } from '../components/ui/use-toast'
+import Link from 'next/link'
 const formSchema = z.object({
   username: z.string().min(2, {
     message: "Username must be at least 2 characters.",
@@ -54,7 +55,7 @@ const Login_Form = () => {
        setload(false);
        form.reset();
        toast({
-        title: "Welcome to the Wait..What:",
+        title: "Check your password",
         description: (
             <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
                 <p>Check your password or username</p>
@@ -108,7 +109,9 @@ const Login_Form = () => {
             )}
           />
           <Button type="submit" variant={'default'} disabled={load} className='dark w-full text-base'>{load? <Loader2 className='animate-spin'/> : "Submit"}</Button>
+          <div className='flex justify-center items-center'><Link href={'/signup'}>Don&apos;t have an account?</Link></div>
         </form>
+        
       </div>
     </Form>
   )

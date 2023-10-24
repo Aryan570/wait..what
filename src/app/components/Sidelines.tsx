@@ -17,7 +17,7 @@ const Sidelines = async () => {
         name: session.name,
         password: session.password
     })
-    const urlR = res ? res.fileURL : '/fatrat.jpg'; ///have to do something here
+    const urlR = res ? res.fileURL : '/fatrat.jpg'; ///have to do something here     IMPPPPPPPPPPP
     let resPost = res?.posts;
     if (!resPost) {
         resPost = [{
@@ -93,5 +93,5 @@ export default Sidelines
 //font size of signup and login ///DONE
 //link to ghiblily             ///DONE
 //realistingly speaking this project might be over on 23 October 2023
-//mobile view  --- this is the big
-//encrypt the passwords.
+//mobile view  --- this is the big -------------- Mobile view remaining
+//encrypt the passwords.  /// DONE

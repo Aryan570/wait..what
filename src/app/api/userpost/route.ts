@@ -14,5 +14,5 @@ export async function POST(request: Request) {
     name: justBody.username,
     password: pass
   })
-  return NextResponse.json(res)
+  return NextResponse.json({res,pass})
 }

@@ -45,13 +45,13 @@ const SignUp = () => {
         },
     })
     const router = useRouter();
-
     async function onSubmit(values: z.infer<typeof formSchema>) {
         setload(true);
         const res = await fetch('http://localhost:3000/api/userpost', {
             method: 'POST',
             body: JSON.stringify(values),
         })
+        const ch = await res.json();
         if (res) {
             toast({
                 title: "Welcome to the Wait..What:",
@@ -63,12 +63,13 @@ const SignUp = () => {
                 ),
             })
             const uname = values.username
-            const upass = values.password
+            const upass = ch.pass
             const res2 = await signIn("credentials", {
                 uname,
                 upass,
                 redirect: false
             })
+            setload(false);
             form.reset();
             router.push('/getimg');
         }
