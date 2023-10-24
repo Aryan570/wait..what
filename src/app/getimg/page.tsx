@@ -51,8 +51,6 @@ const GetImage = () => {
                     variant: "destructive"
                 })
             }
-
-        
             clearInterval(progressInterval);
             setUploadProgress(100);
             router.push('/login')
