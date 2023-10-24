@@ -50,8 +50,10 @@ const Sidelines = async () => {
             <div className=' grid grid-cols-6 grid-rows-6 max-h-screen min-h-screen'>
                 <div className='col-start-1 col-span-1 row-start-1 row-span-1 text-center border-b-[0.5px] border-dashed flex justify-center items-center'><div className='overflow-hidden flex justify-center items-center '><Image className='object-cover overflow-hidden' src='/realLogo.png' alt='left_logo' width={100} height={100} /></div></div>
                 <div className='relative text-center col-start-2 col-span-4 row-start-1 border-l-[0.5px] border-r-[0.5px] border-b-[0.5px] border-dashed'>
+                    <Link href={'/getimg'}>
                     <div className="bg-[url('/chekkkss.svg')] z-10 w-full h-full absolute"></div>
                     <Image className='object-cover ' src={urlR} alt='Cover Picture' fill={true} />
+                    </Link>
                 </div>
                 {/* <div className='col-start-2 min-h-screen  col-span-4 row-start-2 row-span-4 text-center border-l-[0.5px] border-r-[0.5px] border-dashed'>3</div> */}
                 <div className='col-start-2 col-span-4 row-start-auto row-span-4 border-l-[0.5px] border-r-[0.5px] border-dashed overflow-scroll scrollbar-hide'>
