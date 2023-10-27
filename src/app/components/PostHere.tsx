@@ -82,7 +82,7 @@ export function SheetDemo() {
                       </div>
                     </div>
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage className=" text-red-400 text-lg font-bold" />
                 </FormItem>
               )}
             />
@@ -101,7 +101,7 @@ export function SheetDemo() {
                       </div>
                     </div>
                   </FormControl>
-                  <FormMessage/>
+                  <FormMessage className=" text-red-400 text-lg font-bold" />
                 </FormItem>
               )}
             />
