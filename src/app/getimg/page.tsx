@@ -31,7 +31,7 @@ const GetImage = () => {
                 setUploadProgress(-1);
                 return toast({
                     title: "This file type is not supported!",
-                    description: "Please upload images only (size < 4MB).",
+                    description: "Please upload images/gifs only (size < 4MB).",
                     variant: "destructive"
                 })
             }
