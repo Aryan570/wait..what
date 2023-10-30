@@ -88,7 +88,7 @@ const GetImage = () => {
                                 </div>
                             ) : null}
 
-                            <input {...getInputProps()} type='file' id='dropzone-file' className='hidden' />
+                            <input {...getInputProps()} type='file' id='dropzone-filez' className='hidden' />
                         </label>
                     </div>
                 </div>
