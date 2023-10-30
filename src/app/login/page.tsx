@@ -77,7 +77,7 @@ const Login_Form = () => {
   }
   return (
     <Form {...form}>
-      <div className='flex justify-center items-center min-h-screen'>
+      <div className='flex justify-center items-center min-h-screen m-3'>
         <form onSubmit={form.handleSubmit(onSubmit)} className=" bg-slate-900 py-8 rounded-2xl space-y-8 max-w-sm container">
           <FormField
             control={form.control}

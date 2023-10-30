@@ -27,11 +27,18 @@ const GetImage = () => {
             return interval
         }
         return <Dropzone multiple={false} onDrop={async (acceptedFile) => {
+            if((!((acceptedFile[0].type).includes("image")))){
+                setUploadProgress(-1);
+                return toast({
+                    title: "This file type is not supported!",
+                    description: "Please upload images only (size < 4MB).",
+                    variant: "destructive"
+                })
+            }
             setIsUploading(true);
             const progressInterval = simulateProgress();
-
-
             //handle file upload here
+            
             const res = await startUpload(acceptedFile)
             if (!res) {
                 return toast({
@@ -45,6 +52,8 @@ const GetImage = () => {
             const key = fileResponse?.key
 
             if (!key) {
+                clearInterval(progressInterval)
+                setUploadProgress(-1);
                 return toast({
                     title: "Something went wrong!",
                     description: "Please try later.",
@@ -63,7 +72,7 @@ const GetImage = () => {
                                 <UploadCloud />
                                 <p className='text-base'>Upload the Banner picture</p>
                             </div>
-                            {acceptedFiles && acceptedFiles[0] ? (
+                            {acceptedFiles && acceptedFiles[0] && ((acceptedFiles[0].type).includes("image")) ? (
                                 <div className='flex items-center max-w-xs mt-2 overflow-hidden divide-x divide-zinc-200'>
                                     <div className='py-2 px-3 h-full grid place-items-center'>
                                         <ImageIcon className='h-4 w-4 text-white' />
@@ -79,7 +88,7 @@ const GetImage = () => {
                                 </div>
                             ) : null}
 
-                            <input {...getInputProps()} type='image' id='dropzone-file' className='hidden' />
+                            <input {...getInputProps()} type='file' id='dropzone-file' className='hidden' />
                         </label>
                     </div>
                 </div>
