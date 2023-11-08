@@ -8,8 +8,6 @@ import { ArrowRightIcon, Loader2 } from "lucide-react"
 import { redirect } from 'next/navigation'
 import SignO from './Sigout'
 import Link from 'next/link'
-import { Suspense } from 'react'
-import Loading from './Loading'
 const Sidelines = async () => {
     const session = await getServerSession(authOptions);
     if (!session) redirect('/login')
@@ -52,7 +50,6 @@ const Sidelines = async () => {
                     </Link>
                 </div>
                 <div className='col-start-2 col-span-4 row-start-auto row-span-4 border-l-[0.5px] border-r-[0.5px] border-dashed overflow-scroll scrollbar-hide'>
-                    <Suspense fallback={<Loading/>}>
                     {resPost.reverse().map((ele: Ele) => (
                         <div className='bg-slate-800 rounded-xl m-1 py-2' key={ele.title}>
                             <div className='flex justify-between'>
@@ -63,7 +60,6 @@ const Sidelines = async () => {
                             <div className='p-2 break-words'>{ele.content}</div>
                         </div>
                     ))}
-                    </Suspense>
                 </div>
                 <div className='col-start-6 col-span-1 row-start-1 row-span-1 text-center border-b-[0.5px] border-dashed flex justify-center items-center'>
                     <SheetDemo />
