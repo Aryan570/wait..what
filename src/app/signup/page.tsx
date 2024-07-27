@@ -101,7 +101,7 @@ const SignUp = () => {
                             <FormItem>
                                 <FormLabel className='text-base'>Set Password</FormLabel>
                                 <FormControl>
-                                    <Input className='text-base' placeholder="Password" {...field} />
+                                    <Input type='password' className='text-base' placeholder="Password" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -114,7 +114,7 @@ const SignUp = () => {
                             <FormItem>
                                 <FormLabel className='text-base'>Confirm Password</FormLabel>
                                 <FormControl>
-                                    <Input className='text-base' placeholder="Confirm Password" {...field} />
+                                    <Input type='password' className='text-base' placeholder="Confirm Password" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
