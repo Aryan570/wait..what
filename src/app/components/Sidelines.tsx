@@ -4,10 +4,11 @@ import { authOptions } from '../api/auth/[...nextauth]/route'
 import { getServerSession } from 'next-auth'
 import { connectToDatabase } from '../../../lib/mongodb'
 import { SheetDemo } from './PostHere'
-import { ArrowRightIcon, Loader2 } from "lucide-react"
+import { ArrowRightIcon, Trash2 } from "lucide-react"
 import { redirect } from 'next/navigation'
 import SignO from './Sigout'
 import Link from 'next/link'
+import { del } from '../action'
 const Sidelines = async () => {
     const session = await getServerSession(authOptions);
     if (!session) redirect('/login')
@@ -54,7 +55,10 @@ const Sidelines = async () => {
                         <div className='bg-slate-800 rounded-xl m-1 py-2' key={ele.title}>
                             <div className='flex justify-between'>
                                 <div className='p-2 text-lg font-bold'>{ele.title}</div>
-                                <div className='p-2 text-lg'>{ele.date}</div>
+                                <div className='p-2 text-lg flex space-x-2'>
+                                    <div>{ele.date}</div>
+                                    <div><form action={del} key={ele.title}><input name='to_del' value={ele.title} hidden readOnly></input><button type='submit' ><Trash2/></button></form></div>
+                                </div>
                             </div>
                             <hr className=' mx-2 opacity-70' />
                             <div className='p-2 break-words'>{ele.content}</div>
