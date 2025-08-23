@@ -4,7 +4,7 @@ const nextConfig = {
         serverActions : true,
     },
     images:{
-       domains:["uploadthing-prod.s3.us-west-2.amazonaws.com","utfs.io"]
+       domains:["uploadthing-prod.s3.us-west-2.amazonaws.com","utfs.io", "whf8n8zq8z.ufs.sh"]
     },
 }
 
